@@ -1,0 +1,71 @@
+{
+  "name": "provider-notifier",
+  "version": "1.0.0",
+  "description": "A simple notifier for many providers (slack, google chat)",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "rimraf dist",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "test": "jest --runInBand",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "ts-build": "npx tsc",
+    "build": "npm run clean && npm run ts-build",
+    "prepare": "npm run build",
+    "start": "node dist/index.js",
+    "start:dev": "npm run build && node dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LGerMa/provider-notifier.git"
+  },
+  "keywords": [
+    "notifier",
+    "provider",
+    "slack",
+    "google",
+    "chat",
+    "MIT"
+  ],
+  "author": "Luis M (LGerMa)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LGerMa/provider-notifier/issues"
+  },
+  "homepage": "https://github.com/LGerMa/provider-notifier#readme",
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/jest": "^29.5.11",
+    "@types/node": "^20.10.6",
+    "@typescript-eslint/eslint-plugin": "^6.17.0",
+    "@typescript-eslint/parser": "^6.17.0",
+    "eslint": "^8.56.0",
+    "eslint-plugin-jest": "^27.6.1",
+    "jest": "^29.7.0",
+    "rimraf": "^5.0.5",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.3.3"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".*\\.spec\\.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.(controller|service|adapter|interceptor).(t|j)s"
+    ],
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
+  }
+}
